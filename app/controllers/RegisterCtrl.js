@@ -1,5 +1,5 @@
-app.controller('RegisterCtrl', ['Auth', '$firebaseAuth', '$location', '$uibModal',
-	function(Auth, $firebaseAuth, $location, $uibModal) {
+app.controller('RegisterCtrl', ['Auth', '$firebaseAuth', '$location', '$uibModal', '$uibModalInstance',
+	function(Auth, $firebaseAuth, $location, $uibModal, $uibModalInstance) {
 
 	var self = this;
 
@@ -11,7 +11,8 @@ app.controller('RegisterCtrl', ['Auth', '$firebaseAuth', '$location', '$uibModal
 			password: self.password
 		}).then(function(userData) {
 			console.log('User created with uid: ', userData.uid);
-			$location.path('/');
+			$uibModalInstance.close('close');
+			// $location.path('/');
 		}).catch(function(error) {
 			self.error = error;
 			console.log('Error: ', error);
@@ -28,6 +29,8 @@ app.controller('RegisterCtrl', ['Auth', '$firebaseAuth', '$location', '$uibModal
 			password: self.password
 		}).then(function() {
 			self.message = 'User removed!';
+			self.email = null;
+			self.password = null;
 			console.log('self.message', self.message);
 		}).catch(function(error) {
 			self.error = error;

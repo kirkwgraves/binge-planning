@@ -1,7 +1,7 @@
-app.controller('LoginCtrl', ['Auth', '$firebaseAuth', '$location', 'userFactory', '$uibModalInstance', function(Auth, $firebaseAuth, $location, userFactory, $uibModalInstance) {
+app.controller('LoginCtrl', ['Auth', '$firebaseAuth', '$location', 'userFactory', '$uibModal', '$uibModalInstance', function(Auth, $firebaseAuth, $location, userFactory, $uibModal, $uibModalInstance) {
 
 	var self = this;
-	var userId;
+	var userId, loggedIn;
 
 
 	self.login = function() {
@@ -11,6 +11,7 @@ app.controller('LoginCtrl', ['Auth', '$firebaseAuth', '$location', 'userFactory'
 		}).then(function(authData) {
 			console.log('Logged in as: ', authData.uid);
 			userFactory.setUser(authData);
+			self.loggedIn = true;
 			userId = authData.password.email;
 			console.log('userId', userId);
 			$uibModalInstance.close('close');
@@ -21,11 +22,5 @@ app.controller('LoginCtrl', ['Auth', '$firebaseAuth', '$location', 'userFactory'
 		});
 	};
 
-	self.logout = function() {
-		console.log('logging out');
-		Auth.$unauth();
-		$location.path('/');
-	};
 
-
-}]); // End AuthCtrl
+}]); // End LoginCtrl

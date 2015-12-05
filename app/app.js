@@ -6,6 +6,9 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/welcome.html',
 			controller: 'WelcomeCtrl as welcomeCtrl'
 		}).
+		when('/search', {
+			templateUrl: 'partials/show-search.html'
+		})
 		otherwise('/');
 
 }]);
