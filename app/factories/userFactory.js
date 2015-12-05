@@ -8,7 +8,7 @@ app.factory('userFactory', ['$firebaseArray',
 			// Function to set user for duration of login
 			setUser: function(authData) {
 				loggedInUser = authData;
-				console.log('loggedInUser', loggedInUser);
+				console.log('loggedInUser = ', loggedInUser);
 				ref = new Firebase('https://binge-planning.firebaseio.com/users' + loggedInUser.uid + '/shows/');
 				showsArray = $firebaseArray(ref);
 				console.log('showsArray', showsArray);

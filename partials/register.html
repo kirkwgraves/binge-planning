@@ -1,0 +1,21 @@
+<div class="modal-header">
+	<h2>CREATE A BINGE PLAN ACCOUNT</h2>
+</div>
+<div class="modal-body">
+	<form role="form">
+	  
+	  <div class="email__register">
+		  <input id="reg-email" placeholder="Enter email address" ng-model="registerCtrl.email" type="email" />
+	  </div>
+	  <div class="password__register">
+		  <input id="reg-password" placeholder="Create a password" ng-model="registerCtrl.password" type="password" />
+	  </div>
+
+	  <div class="modal-footer">
+		  <button class="btn btn-primary" ng-click="registerCtrl.register()">REGISTER</button>
+		  <button class="btn btn-danger" ng-click="registerCtrl.removeUser()">REMOVE USER</button>
+	  </div>
+	  
+	</form>
+
+</div>

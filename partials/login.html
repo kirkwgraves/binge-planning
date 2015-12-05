@@ -1,0 +1,18 @@
+<div class="modal-header">
+	<h2>LOG IN</h2>
+</div>
+
+<div class="modal-body">
+	<form name="login-form">		
+		
+		<div>
+			<input id="email" required type="email" ng-model="loginCtrl.email" placeholder="Enter your email" />
+		</div>
+		<div>
+			<input id="password" required type="password" ng-model="loginCtrl.password" placeholder="Enter your password" />
+		</div>
+		
+		<button class="btn btn-primary" ng-click="loginCtrl.login()" ng-show="loginCtrl.email && loginCtrl.password">Log in</button>
+
+	</form>
+</div>			
