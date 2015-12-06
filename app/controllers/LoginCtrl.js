@@ -1,7 +1,7 @@
 app.controller('LoginCtrl', ['Auth', '$firebaseAuth', '$location', 'userFactory', '$uibModal', '$uibModalInstance', function(Auth, $firebaseAuth, $location, userFactory, $uibModal, $uibModalInstance) {
 
 	var self = this;
-	var userId, loggedIn;
+	var userId;
 
 
 	self.login = function() {

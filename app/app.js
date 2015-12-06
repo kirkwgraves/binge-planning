@@ -8,7 +8,8 @@ app.config(['$routeProvider', function($routeProvider) {
 		}).
 		when('/search', {
 			templateUrl: 'partials/show-search.html'
-		})
+			controller: 'SearchCtrl as searchCtrl'
+		}).
 		otherwise('/');
 
 }]);

@@ -13,7 +13,12 @@ app.factory('userFactory', ['$firebaseArray',
 				showsArray = $firebaseArray(ref);
 				console.log('showsArray', showsArray);
 				return showsArray;
-			}
+			},
+
+			getUserShows: function() {
+				console.log('showsArray', showsArray);
+				return showsArray;
+			},
 
 
 		};

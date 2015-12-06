@@ -29,9 +29,10 @@ app.controller('RegisterCtrl', ['Auth', '$firebaseAuth', '$location', '$uibModal
 			password: self.password
 		}).then(function() {
 			self.message = 'User removed!';
+			console.log('self.message', self.message);
 			self.email = null;
 			self.password = null;
-			console.log('self.message', self.message);
+			$location.path('/');
 		}).catch(function(error) {
 			self.error = error;
 			console.log('User not removed due to: ', error);

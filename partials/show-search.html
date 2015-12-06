@@ -1,7 +1,11 @@
-<div class="row">
+<div ng-if="!details" class="row">
 	<div class="col-md-6">
-		<input type="text" ng-model="searchCtrl.shows" />
+		<input type="text" ng-model="searchCtrl.search"  autofocus/>
 
+		<div>
+			<span><a href="http://imdb.com/title/{{ searchCtrl.details.imdbID }}" target="_blank">{{ searchCtrl.details.Title }}</a></span>, {{ searchCtrl.details.Year }}
+			<p>{{ searchCtrl.details.Plot }}</p>
+		</div>
 
 
 	</div>
