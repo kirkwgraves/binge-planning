@@ -3,16 +3,18 @@ app.controller('SearchCtrl', ['$http', function($http) {
 	var self = this;
 	var pendingTask;
 
-	self.search = null;
-
 	function fetch() {
 		$http.get('http://www.omdbapi.com/?t=' + 
 			self.search + '&tomatoes=true&plot=full')
 		.success(function(response) {
-			self.showDetails = response;
-			console.log('self.showDetails', self.showDetails);
+			self.tvData = response;
+			console.log('self.tvData', self.tvData);
 		});
 	}
+
+	self.select = function(){
+  	this.setSelectionRange(0, this.value.length);
+	};
 
 	self.change = function() {
 		if (pendingTask) {

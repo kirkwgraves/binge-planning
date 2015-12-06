@@ -7,7 +7,7 @@ app.config(['$routeProvider', function($routeProvider) {
 			controller: 'WelcomeCtrl as welcomeCtrl'
 		}).
 		when('/search', {
-			templateUrl: 'partials/show-search.html'
+			templateUrl: 'partials/show-search.html',
 			controller: 'SearchCtrl as searchCtrl'
 		}).
 		otherwise('/');

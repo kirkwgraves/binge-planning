@@ -15,7 +15,7 @@ app.controller('LoginCtrl', ['Auth', '$firebaseAuth', '$location', 'userFactory'
 			userId = authData.password.email;
 			console.log('userId', userId);
 			$uibModalInstance.close('close');
-			// $location.path('/');
+			$location.path('/search');
 		}).catch(function(error) {
 			self.error = error;
 			console.log('Authentication failed: ', error);

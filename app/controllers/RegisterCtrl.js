@@ -12,7 +12,7 @@ app.controller('RegisterCtrl', ['Auth', '$firebaseAuth', '$location', '$uibModal
 		}).then(function(userData) {
 			console.log('User created with uid: ', userData.uid);
 			$uibModalInstance.close('close');
-			// $location.path('/');
+			$location.path('/');
 		}).catch(function(error) {
 			self.error = error;
 			console.log('Error: ', error);
