@@ -9,7 +9,7 @@ app.factory('userFactory', ['$firebaseArray',
 			setUser: function(authData) {
 				loggedInUser = authData;
 				console.log('loggedInUser = ', loggedInUser);
-				ref = new Firebase('https://binge-planning.firebaseio.com/users' + loggedInUser.uid + '/shows/');
+				ref = new Firebase('https://binge-planning.firebaseio.com/users/' + loggedInUser.uid + '/shows/');
 				showsArray = $firebaseArray(ref);
 				console.log('showsArray', showsArray);
 				return showsArray;
@@ -19,6 +19,15 @@ app.factory('userFactory', ['$firebaseArray',
 				console.log('showsArray', showsArray);
 				return showsArray;
 			},
+
+			addShow: function(newTvShow) {
+				console.log('showsArray', showsArray);
+				showsArray.$add(newTvShow)
+				.then(function(ref) {
+					var id = ref.key();
+					console.log('Added show with id: ' + id);
+				});
+			}
 
 
 		};

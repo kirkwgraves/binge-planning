@@ -1,7 +1,20 @@
-app.controller('SearchCtrl', ['$http', function($http) {
+app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactory) {
 
 	var self = this;
 	var pendingTask;
+
+
+	self.addTvShow = function() {
+		var newTvShow = {
+			title: self.tvData.Title,
+			plot: self.tvData.Plot,
+			year: self.tvData.Year,
+			imdbID: self.tvData.imdbID,
+			poster: self.tvData.Poster
+		};
+
+		userFactory.addShow(newTvShow);
+	};
 
 	function fetch() {
 		$http.get('http://www.omdbapi.com/?t=' + 
