@@ -3,12 +3,12 @@
 <div class="row">
 	<div class="col-md-8">
 		<h2>Discover Shows to Binge On</h2>
-		<input type="text" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" placeholder="Enter full show title" autofocus/>
+		<input id="search__field" type="text" class="form-control" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" placeholder="Enter full show title"/>
 
-		<div ng-if="searchCtrl.tvData.Response === 'True'">
+		<div id="search-result__primary" ng-if="searchCtrl.tvData.Response === 'True'">
 			<img ng-src="{{ searchCtrl.tvData.Poster == 'N/A' ?  
                 'http://placehold.it/150x220&text=N/A' : 
-                'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}">
+                'http://imdb.wemakesites.net/api/1.0/img/?url=' + searchCtrl.tvData.Poster }}">
 			<span><a href="http://imdb.com/title/{{ searchCtrl.tvData.imdbID }}" target="_blank">{{ searchCtrl.tvData.Title }}</a> {{ searchCtrl.tvData.Year }}</span> 
 			<p>{{ searchCtrl.tvData.Plot }}</p>
 			<button class="btn btn-primary" type="submit" ng-click="searchCtrl.addTvShow()">BINGE</button>
