@@ -10,12 +10,20 @@ app.controller('SearchCtrl', ['$http', function($http) {
 			self.tvData = response;
 			console.log('self.tvData', self.tvData);
 		});
+
+		$http.get('http://www.omdbapi.com/?s=' + self.search)
+		.success(function(response) {
+			self.related = response;
+			console.log('self.related', self.related);
+		});
 	}
 
-	self.select = function(){
-  	this.setSelectionRange(0, this.value.length);
-	};
 
+	self.update = function(tvShow) {
+		self.search = tvShow.Title;
+		self.change();
+	};
+	
 	self.change = function() {
 		if (pendingTask) {
 			clearTimeout(pendingTask);
@@ -23,6 +31,9 @@ app.controller('SearchCtrl', ['$http', function($http) {
 		pendingTask = setTimeout(fetch, 800);
 	};
 
+	self.select = function(){
+  	this.setSelectionRange(0, this.value.length);
+	};
 
 
 
