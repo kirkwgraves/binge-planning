@@ -1,11 +1,42 @@
 body {
-  padding-top: 70px; }
+  padding-top: 70px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/2000px-SMPTE_Color_Bars.svg.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
-#search__field {
+body h1 {
+  font-size: 6em;
+  font-weight: 600;
+  color: black; }
+
+i {
+  padding-left: 6px;
+  padding-right: 6px; }
+
+.btn-raised {
+  font-weight: 500; }
+
+.jumbotron {
+  text-align: center; }
+
+.well {
+  text-align: center;
+  font-size: 1.5em;
+  font-color: black; }
+
+#search__area {
+  background-color: white;
+  font-size: 1.5em; }
+
+#title__field {
+  color: black;
   margin-top: 50px;
   font-size: 1.5em; }
 
 #search-result__primary {
+  color: black;
   margin-top: 50px; }
 
 /*# sourceMappingURL=main.css.map */

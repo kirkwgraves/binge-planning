@@ -10,6 +10,10 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/show-search.html',
 			controller: 'SearchCtrl as searchCtrl'
 		}).
+		when('/profile', {
+			templateUrl: 'partials/profile.html',
+			controller: 'ProfileCtrl as profileCtrl'
+		}).
 		otherwise('/');
 
 }]);
