@@ -23,8 +23,6 @@ app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactor
 			console.log('response', response);
 			self.tvData = response;
 
-
-
 				var xmlHTTP = new XMLHttpRequest();
 		    xmlHTTP.open('GET','http://img.omdbapi.com/?i='+ response.imdbID + '&apikey=7c212437',true);
 
@@ -43,10 +41,12 @@ app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactor
 		        var raw = String.fromCharCode.apply(null,arr);
 
 		        // This works!!!
-		        var b64=btoa(raw);
-		        var dataURL="data:image/jpeg;base64,"+b64;
+		        var b64 = btoa(raw);
+		        var dataURL = 'data:image/jpeg;base64,' + b64;
 		        console.log('dataURL', dataURL);
-		        document.getElementById("movie-image").src = dataURL;
+		        document.getElementById('poster-image').src = dataURL;
+		        self.tvData.Poster = dataURL;
+		        console.log('self.tvData.Poster', self.tvData.Poster);
 		    };
 
 		    xmlHTTP.send();

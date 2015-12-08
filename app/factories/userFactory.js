@@ -26,6 +26,8 @@ app.factory('userFactory', ['$firebaseArray',
 				.then(function(ref) {
 					var id = ref.key();
 					console.log('Added show with id: ' + id);
+					newTvShow.id = id;
+					console.log('newTvShow', newTvShow);
 				});
 			}
 

@@ -6,7 +6,7 @@
 
 		<table class="table">
 
-      <tr>
+      <tr class="info">
         <th>SHOW</th>
         <th>CAST</th>
         <th>PLOT</th>
@@ -14,7 +14,7 @@
       </tr>
 
       <tr class="info" ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
-        <td>{{ show.title }}</td>
+        <td><img ng-src={{ show.poster }}/></td>
         <td>{{ show.cast }}</td>
         <td>{{ show.plot }}</td>
         <td>{{ show.year }}</td>
