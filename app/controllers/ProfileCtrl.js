@@ -7,7 +7,7 @@ app.controller('ProfileCtrl', ['$routeParams', '$firebaseArray', 'userFactory', 
 	.then(function(tvData) {
 		self.showsArray = tvData;
 		console.log('self.showsArray', self.showsArray);
-	}) 
+	})
 	.catch(function(error) {
 		console.log('Failure due to: ', error);
 	}); // End callback func

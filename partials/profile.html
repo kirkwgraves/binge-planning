@@ -14,8 +14,7 @@
       </tr>
 
       <tr class="info" ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
-      	<td><img ng-src="{{ show.poster }}"></td>
-        <td><a href="#/profile/:{{ show.id }}">{{ show.title }}</a></td>
+      	<td><img ng-src="{{ show.poster }}"><a href="#/profile/{{ show.$id }}">{{ show.title }}</a></td>
         <td>{{ show.cast }}</td>
         <td>{{ show.plot }}</td>
         <td>{{ show.year }}</td>
