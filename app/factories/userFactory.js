@@ -20,6 +20,10 @@ app.factory('userFactory', ['$firebaseArray',
 				return showsArray;
 			},
 
+			getShow: function(){
+				
+			},
+
 			addShow: function(newTvShow) {
 				console.log('showsArray', showsArray);
 				showsArray.$add(newTvShow)

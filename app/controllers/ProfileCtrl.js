@@ -1,9 +1,8 @@
-app.controller('ProfileCtrl', ['$firebaseArray', 'userFactory', '$http', function($firebaseArray, userFactory, $http) {
+app.controller('ProfileCtrl', ['$routeParams', '$firebaseArray', 'userFactory', '$http', 
+	function($routeParams, $firebaseArray, userFactory, $http) {
 
 	var self = this;
-
-	self.showsArray = [];
-
+	
 	userFactory.getUserShows().$loaded()
 	.then(function(tvData) {
 		self.showsArray = tvData;

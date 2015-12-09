@@ -14,6 +14,10 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/profile.html',
 			controller: 'ProfileCtrl as profileCtrl'
 		}).
+		when('/profile/:tvShowId', {
+			templateUrl: 'partials/show-detail.html',
+			controller: 'ProfileCtrl as profileCtrl'
+		}).
 		otherwise('/');
 
 }]);
