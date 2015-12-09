@@ -3,9 +3,14 @@
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
 		
-    <img ng-src="{{ showDetailCtrl.selectedShow.poster }}"/>
-    <h1>{{ showDetailCtrl.selectedShow.title }}</h1>
-
+		<div id="detail__area">
+    	<img ng-src="{{ showDetailCtrl.selectedShow.poster }}"/>
+	    <h2><strong>{{ showDetailCtrl.selectedShow.title }}</strong></h2>
+	    <div>{{ showDetailCtrl.selectedShow.plot }}</div>
+	    <br>
+	    <div><span><strong>CAST: </strong>{{ showDetailCtrl.selectedShow.cast }}</span></div>
+	    <div><span><strong>AIRED: </strong>{{ showDetailCtrl.selectedShow.year }}</span></div>
+	  </div>
 
 
 		<!-- Add datepicker here to store watch dates in given TV show object -->

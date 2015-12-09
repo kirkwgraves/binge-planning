@@ -5,14 +5,14 @@
 	<form role="form">
 	  
 	  <div class="email__register">
-		  <input id="reg-email" placeholder="Enter email address" ng-model="registerCtrl.email" type="email" />
+		  <input id="reg-email" class="form-control" placeholder="Enter email address" ng-model="registerCtrl.email" type="email" />
 	  </div>
 	  <div class="password__register">
-		  <input id="reg-password" placeholder="Create a password" ng-model="registerCtrl.password" type="password" />
+		  <input id="reg-password" class="form-control" placeholder="Create a password" ng-model="registerCtrl.password" type="password" />
 	  </div>
 
 	  <div class="modal-footer">
-		  <button class="btn btn-primary" ng-click="registerCtrl.register()">REGISTER</button>
+		  <button class="btn btn-material-blue-900" ng-click="registerCtrl.register()">REGISTER</button>
 		  <button class="btn btn-danger" ng-click="registerCtrl.removeUser()">REMOVE USER</button>
 	  </div>
 	  
