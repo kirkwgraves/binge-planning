@@ -16,8 +16,7 @@ app.factory('userFactory', ['$firebaseArray',
 			},
 
 			getUserShows: function() {
-				var theUser = getUser();
-				var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + theUser.uid + '/shows/');
+				var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + loggedInUser.uid + '/shows/');
 				self.showsArray = $firebaseArray(ref);
 				console.log('self.showsArray', self.showsArray);
 				return self.showsArray;
