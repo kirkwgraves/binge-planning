@@ -2,11 +2,17 @@ app.controller('ShowDetailCtrl', ['$routeParams', '$firebaseArray', 'userFactory
 	function($routeParams, $firebaseArray, userFactory, $http) {
 
 	var self = this;
+	self.showsArray;
 	self.selectedShow = {};
 	self.tvShowId = $routeParams.tvShowId;
 	console.log('self.tvShowId', self.tvShowId);
 
-	userFactory.getUserShows().$loaded()
+
+	var theUser = userFactory.getUser();
+	var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + theUser.uid + '/shows/');
+	self.showsArray = $firebaseArray(ref);
+
+	self.showsArray.$loaded()
 	.then(function(tvData) {
 		self.showsArray = tvData;
 		console.log('self.showsArray', self.showsArray);
@@ -17,6 +23,14 @@ app.controller('ShowDetailCtrl', ['$routeParams', '$firebaseArray', 'userFactory
 		console.log('Failure due to: ', error);
 	}); // End callback func
 
+	
+self.addBingeDates = function() {
+	console.log('self.selectedShow.startDate', self.selectedShow.startDate);
+
+	// self.selectedShow.startDate = self.selectedShow.startDate.toJSON();
+	// self.selectedShow.endDate = self.selectedShow.endDate.toJSON();
+	self.showsArray.$save(self.selectedShow);
+};
 
 
 

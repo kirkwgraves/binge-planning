@@ -10,7 +10,9 @@ app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactor
 			plot: self.tvData.Plot,
 			year: self.tvData.Year,
 			imdbID: self.tvData.imdbID,
-			poster: self.tvData.Poster
+			poster: self.tvData.Poster,
+			startDate: "test",
+			endDate: "test"
 		};
 
 		userFactory.addShow(newTvShow);

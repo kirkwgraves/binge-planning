@@ -12,8 +12,12 @@
 	    <div><span><strong>AIRED: </strong>{{ showDetailCtrl.selectedShow.year }}</span></div>
 	  </div>
 
-
+	
+		<h4>Schedule A Binge</h4>
+  	<input ng-change="showDetailCtrl.addBingeDates()" type="text" name="input" ng-model="showDetailCtrl.selectedShow.startDate" />
 		<!-- Add datepicker here to store watch dates in given TV show object -->
+
+		<span>{{ showDetailCtrl.selectedShow.startDate }}</span>
 
 	</div>
 </div>

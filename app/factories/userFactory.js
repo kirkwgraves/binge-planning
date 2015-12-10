@@ -1,32 +1,32 @@
 app.factory('userFactory', ['$firebaseArray',
 	function($firebaseArray) {
 
-		var showsArray = [];
 		var loggedInUser, ref;
+		self.showsArray;
 
 		return {
 			// Function to set user for duration of login
 			setUser: function(authData) {
 				loggedInUser = authData;
-				console.log('loggedInUser = ', loggedInUser);
-				ref = new Firebase('https://binge-planning.firebaseio.com/users/' + loggedInUser.uid + '/shows/');
-				showsArray = $firebaseArray(ref);
-				console.log('showsArray', showsArray);
-				return showsArray;
+				console.log('loggedInUser = ', loggedInUser);		
+			},
+
+			getUser: function() {
+				return loggedInUser;
 			},
 
 			getUserShows: function() {
-				console.log('showsArray', showsArray);
-				return showsArray;
-			},
-
-			getShow: function(){
-				
+				var theUser = getUser();
+				var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + theUser.uid + '/shows/');
+				self.showsArray = $firebaseArray(ref);
+				console.log('self.showsArray', self.showsArray);
+				return self.showsArray;
 			},
 
 			addShow: function(newTvShow) {
-				console.log('showsArray', showsArray);
-				showsArray.$add(newTvShow)
+				var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + loggedInUser.uid + '/shows/');
+				self.showsArray = $firebaseArray(ref);
+				self.showsArray.$add(newTvShow)
 				.then(function(ref) {
 					var id = ref.key();
 					console.log('Added show with id: ' + id);
