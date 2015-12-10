@@ -1,13 +1,15 @@
 <div ng-controller="WelcomeCtrl as welcomeCtrl" ng-include="'partials/navbar.html'"></div>
 
 <div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		<h2>Your Binge Pipeline</h2>
-
+	<div class="col-md-2 col-md-offset-5">
+		<div id="pipeline-heading">
+			<h2>BINGE PIPELINE</h2>
+		</div>
+		
 		<table class="table">
 
-      <tr class="info" ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
-      	<td><a href="#/profile/{{ show.$id }}"><img ng-src="{{ show.poster }}"></a></td>
+      <tr ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
+      	<td><a href="#/profile/{{ show.$id }}"><img class="pipeline-poster" ng-src="{{ show.poster }}"></a></td>
       </tr>
 
     </table>

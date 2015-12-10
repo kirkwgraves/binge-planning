@@ -11,6 +11,10 @@ body h1 {
   font-weight: 600;
   color: black; }
 
+td {
+  background-color: black;
+  opacity: .85; }
+
 i {
   padding-left: 6px;
   padding-right: 6px; }
@@ -38,6 +42,12 @@ i {
 #search-result__primary {
   color: black;
   margin-top: 50px; }
+
+#pipeline-heading {
+  font-weight: 500; }
+
+.pipeline-poster {
+  padding-left: 8px; }
 
 #detail__area {
   background-color: white;
