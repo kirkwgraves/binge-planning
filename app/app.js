@@ -1,4 +1,4 @@
-var app = angular.module('BingeApp', ['ngRoute', 'firebase', 'ui.bootstrap']);
+var app = angular.module('BingeApp', ['ngRoute', 'firebase', 'mwl.calendar', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
@@ -17,6 +17,10 @@ app.config(['$routeProvider', function($routeProvider) {
 		when('/profile/:tvShowId', {
 			templateUrl: 'partials/show-detail.html',
 			controller: 'ShowDetailCtrl as showDetailCtrl'
+		}).
+		when('/calendar', {
+			templateUrl: 'partials/binge-calendar.html',
+			controller: 'CalendarCtrl as calendarCtrl'
 		}).
 		otherwise('/');
 

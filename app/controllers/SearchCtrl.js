@@ -33,22 +33,22 @@ app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactor
 
 		    xmlHTTP.onload = function (e) {
 
-		        var arr = new Uint8Array(this.response);
+	      	var arr = new Uint8Array(this.response);
 
+	        // Convert the int array to a binary string
+	        // We have to use apply() as we are converting an *array*
+	        // and String.fromCharCode() takes one or more single values, not
+	        // an array.
 
-		        // Convert the int array to a binary string
-		        // We have to use apply() as we are converting an *array*
-		        // and String.fromCharCode() takes one or more single values, not
-		        // an array.
-		        var raw = String.fromCharCode.apply(null,arr);
+	        var raw = String.fromCharCode.apply(null,arr);
 
-		        // This works!!!
-		        var b64 = btoa(raw);
-		        var dataURL = 'data:image/jpeg;base64,' + b64;
-		        console.log('dataURL', dataURL);
-		        document.getElementById('poster-image').src = dataURL;
-		        self.tvData.Poster = dataURL;
-		        console.log('self.tvData.Poster', self.tvData.Poster);
+	        // This works!!!
+	        var b64 = btoa(raw);
+	        var dataURL = 'data:image/jpeg;base64,' + b64;
+	        console.log('dataURL', dataURL);
+	        document.getElementById('poster-image').src = dataURL;
+	        self.tvData.Poster = dataURL;
+	        console.log('self.tvData.Poster', self.tvData.Poster);
 		    };
 
 		    xmlHTTP.send();
@@ -57,11 +57,6 @@ app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactor
 			console.log('self.tvData', self.tvData);
 		});
 
-		$http.get('http://www.omdbapi.com/?s=' + self.search)
-		.success(function(response) {
-			self.related = response;
-			console.log('self.related', self.related);
-		});
 	}
 
 	self.update = function(tvShow) {
