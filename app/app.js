@@ -1,4 +1,4 @@
-var app = angular.module('BingeApp', ['ngRoute', 'firebase', 'mwl.calendar', 'ui.bootstrap']);
+var app = angular.module('BingeApp', ['ngRoute', 'firebase', 'ui.calendar', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
