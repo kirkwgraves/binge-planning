@@ -1,15 +1,19 @@
-app.controller('ShowDetailCtrl', ['$routeParams', '$firebaseArray', 'userFactory', '$http', 
-	function($routeParams, $firebaseArray, userFactory, $http) {
+app.controller('ShowDetailCtrl', ['$routeParams', 'Auth', '$firebaseArray', 'userFactory', '$http', 
+	function($routeParams, Auth, $firebaseArray, userFactory, $http) {
 
+	var ref;
 	var self = this;
+	var authData = Auth.$getAuth();
+	var user = authData.uid;
+	console.log('user', user);
+
 	self.showsArray;
 	self.selectedShow = {};
 	self.tvShowId = $routeParams.tvShowId;
 	console.log('self.tvShowId', self.tvShowId);
 
 
-	var theUser = userFactory.getUser();
-	var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + theUser.uid + '/shows/');
+	ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
 	self.showsArray = $firebaseArray(ref);
 
 	self.showsArray.$loaded()

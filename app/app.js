@@ -1,4 +1,4 @@
-var app = angular.module('BingeApp', ['ngRoute', 'firebase', 'ui.calendar', 'ui.bootstrap']);
+var app = angular.module('BingeApp', ['ngRoute', 'firebase', 'mwl.calendar', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
@@ -25,3 +25,13 @@ app.config(['$routeProvider', function($routeProvider) {
 		otherwise('/');
 
 }]);
+
+app.run(function () {
+
+	// Check Firebase authentication `getAuth()`
+
+	// If user is currently logged in, load appropriate view `$location`
+
+	// If user is not logged in, execute load login screen with `$location`
+
+});

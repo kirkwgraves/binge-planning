@@ -1,9 +1,15 @@
-app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactory) {
+app.controller('SearchCtrl', ['$http', '$firebaseArray', 'userFactory', function($http, $firebaseArray, userFactory) {
 
 	var self = this;
-	var pendingTask;
+	var pendingTask, loggedInUser;
 
-	self.addTvShow = function() {
+
+	self.addTvShow = function(newTvShow) {
+		
+		loggedInUser = userFactory.getUser();
+		
+		var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + loggedInUser.uid + '/shows/');
+		
 		var newTvShow = {
 			title: self.tvData.Title,
 			cast: self.tvData.Actors,
@@ -11,11 +17,20 @@ app.controller('SearchCtrl', ['$http', 'userFactory', function($http, userFactor
 			year: self.tvData.Year,
 			imdbID: self.tvData.imdbID,
 			poster: self.tvData.Poster,
-			startDate: "test",
-			endDate: "test"
+			startDate: '',
+			endDate: ''
 		};
+			
+		self.showsArray = $firebaseArray(ref);
+		self.showsArray.$add(newTvShow)
+		.then(function(ref) {
+			var id = ref.key();
+			console.log('Added show with id: ' + id);
+			newTvShow.id = id;
+			console.log('newTvShow', newTvShow);
+		});
 
-		userFactory.addShow(newTvShow);
+		
 	};
 
 	function fetch() {
