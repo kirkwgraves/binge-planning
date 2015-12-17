@@ -14,7 +14,7 @@
 
 	
 		<h4>Schedule A Binge</h4>
-  	<div>
+  	<div class="date-field">
   		<span>START DATE</span>
   		<input class="form-control" ng-change="showDetailCtrl.addBingeDates()" placeholder="Enter start date as YYYY-MM-DD" type="text" name="input" ng-model="showDetailCtrl.selectedShow.startDate" />
   	</div>
@@ -23,7 +23,7 @@
 		<!-- <div>START DATE
 			<span>{{ showDetailCtrl.selectedShow.startDate }}</span>
 		</div>
- --><div>
+ --><div class="date-field">
  			<span>END DATE</span>
 			<input class="form-control" ng-change="showDetailCtrl.addBingeDates()" placeholder="Enter end date as YYYY-MM-DD" type="text" name="input" ng-model="showDetailCtrl.selectedShow.endDate" />
 		</div>

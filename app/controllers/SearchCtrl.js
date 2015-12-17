@@ -1,14 +1,16 @@
-app.controller('SearchCtrl', ['$http', '$firebaseArray', 'userFactory', function($http, $firebaseArray, userFactory) {
+app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', function(Auth, $http, $firebaseArray, userFactory) {
 
 	var self = this;
-	var pendingTask, loggedInUser;
+	var authData = Auth.$getAuth();
+	var user = authData.uid;
+	var pendingTask;
 
 
 	self.addTvShow = function(newTvShow) {
 		
 		loggedInUser = userFactory.getUser();
 		
-		var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + loggedInUser.uid + '/shows/');
+		var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
 		
 		var newTvShow = {
 			title: self.tvData.Title,

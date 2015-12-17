@@ -3,13 +3,15 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
 
+  <h2>{{ calendarCtrl.currentMonth }}</h2>	
 	<mwl-calendar
     view="calendarCtrl.calendarView"
     current-day="calendarCtrl.calendarDay"
     events="calendarCtrl.events"
     view-title="calendarTitle"
-    on-event-click="eventClicked(calendarEvent)"
+    on-event-click="calendarCtrl.eventClicked(calendarEvent)"
     on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+    calendar-control
     edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
     delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
     on-edit-event-click="eventEdited(calendarEvent)"
