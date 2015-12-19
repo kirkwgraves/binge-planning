@@ -1,5 +1,5 @@
-app.controller('ShowDetailCtrl', ['$routeParams', 'Auth', '$firebaseArray', 'userFactory', '$http', 
-	function($routeParams, Auth, $firebaseArray, userFactory, $http) {
+app.controller('ShowDetailCtrl', ['$routeParams', 'Auth', '$firebaseArray', 'userFactory', '$http', '$location', 
+	function($routeParams, Auth, $firebaseArray, userFactory, $http, $location) {
 
 	var ref;
 	var self = this;
@@ -29,11 +29,17 @@ app.controller('ShowDetailCtrl', ['$routeParams', 'Auth', '$firebaseArray', 'use
 
 	
 self.addBingeDates = function() {
-	console.log('self.selectedShow.startDate', self.selectedShow.startDate);
 
-	// self.selectedShow.startDate = self.selectedShow.startDate.toJSON();
-	// self.selectedShow.endDate = self.selectedShow.endDate.toJSON();
+	// Format datepicker Date object into yyyy-MM-dd
+	self.selectedShow.startDate = (self.selectedShow.startDate.getYear() + 1900) + '-' + (self.selectedShow.startDate.getMonth() + 1) + '-' + self.selectedShow.startDate.getDate();  
+	console.log('self.selectedShow.startDate', self.selectedShow.startDate);
+	
+	self.selectedShow.endDate = (self.selectedShow.endDate.getYear() + 1900) + '-' + (self.selectedShow.endDate.getMonth() + 1) + '-' + self.selectedShow.endDate.getDate();  
+	console.log('self.selectedShow.endDate', self.selectedShow.endDate);
+
+	
 	self.showsArray.$save(self.selectedShow);
+	$location.path('/calendar');
 };
 
 

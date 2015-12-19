@@ -5,19 +5,14 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 	var authData = Auth.$getAuth();
 	var user = authData.uid;
 
+
 	self.showsArray =[];
 	self.events = [];
-	self.selectedEvent = {};
+	
+	// These two attrs required for calendar to render 
 	self.calendarView = 'month';
 	self.calendarDay = new Date();
-	self.month = [];
-	self.monthsArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-	for (var i = 0; i < self.monthsArray.length; i++) {
-		self.month[i] = self.monthsArray[i];
-	}
-	
-	self.currentMonth = self.month[self.calendarDay.getMonth()];
+	 
 
 	ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
 	// Use snapshots to manipulate shows in user's array
@@ -49,14 +44,23 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 
 	});
 
+	function showModal(action, calendarEvent) {
+      $uibModal.open({
+        templateUrl: 'partials/event-detail.html',
+        controllerAs: CalendarCtrl
+        }),
+        scope: $scope,
+        resolve: {
+        	calendarEvent: function () {
+          	return $scope.calendarEvent;
+        	}
+        },
+      });
+  }
+
 	self.eventClicked = function(calendarEvent) {
+		showModal('Click', calendarEvent);
 		console.log('calendarEvent.title', calendarEvent.title);
-		self.selectedEvent = calendarEvent;
-		console.log('self.selectedEvent', self.selectedEvent);
-		$uibModal.open({
-			templateUrl: 'partials/event-detail.html',
-			controller: 'CalendarCtrl as calendarCtrl'
-		});
 	};
 
 	

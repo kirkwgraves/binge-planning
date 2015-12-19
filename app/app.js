@@ -26,6 +26,27 @@ app.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
+app.config(function(calendarConfigProvider) {
+
+	calendarConfigProvider.setDateFormatter('moment');
+	calendarConfigProvider.setDateFormats({
+  	hour: 'HH:mm' // this will configure times on the day view to display in 24 hour format rather than the default of 12 hour
+  });
+	calendarConfigProvider.setTitleFormats({
+  	day: 'ddd D MMM' //this will configure the day view title to be shorter
+  });
+	calendarConfigProvider.setI18nStrings({
+  	eventsLabel: 'Events', //This will set the events label on the day view
+    timeLabel: 'Time' //This will set the time label on the time view
+  });
+  calendarConfigProvider.setDisplayAllMonthEvents(true);
+  calendarConfigProvider.setDisplayEventEndTimes(false); //This will display event end times on the month and year views. Default false
+
+
+});
+
+
+
 app.run(function () {
 
 	// Check Firebase authentication `getAuth()`
