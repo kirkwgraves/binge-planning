@@ -30,6 +30,8 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 			if (show.startDate !== '' && show.endDate !== '') {
 				self.events.push({
 					title: show.title,
+					plot: show.plot,
+					cast: show.cast,
 					type: 'info',
 					startsAt: moment(show.startDate),
 					endsAt: moment(show.endDate),
