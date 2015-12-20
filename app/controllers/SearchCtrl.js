@@ -88,6 +88,11 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 		pendingTask = setTimeout(fetch, 500);
 	};
 
+	self.clear = function() {
+		self.search = "";
+		self.change();
+	};
+
 	self.select = function(){
   	this.setSelectionRange(0, this.value.length);
 	};

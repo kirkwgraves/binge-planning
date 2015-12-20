@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col-md-8">
-		<h1>Discover Shows to Binge On</h1>
+		<h1>Search Shows by Title</h1>
 		
 		<input id="title__field" type="text" class="form-control" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" placeholder="Enter full show title"/>
 
@@ -15,9 +15,28 @@
 				<span><a href="http://imdb.com/title/{{ searchCtrl.tvData.imdbID }}" target="_blank">{{ searchCtrl.tvData.Title }}</a> {{ searchCtrl.tvData.Year }}</span> 
 				<p>{{ searchCtrl.tvData.Plot }}</p>
 				<button class="btn btn-primary" type="submit" ng-click="searchCtrl.addTvShow()">BINGE</button>
+				<button class="btn btn-warning" ng-click="searchCtrl.clear()">CLEAR</button>
 			</div>
 		</div>
-
-
 	</div>
+
+	<div class="col-md-8">
+		<h1>Search Shows by Season</h1>
+		
+		<input id="title__field" type="text" class="form-control" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" placeholder="Enter full show title"/>
+
+			<a href="#/profile" class="btn btn-raised btn-large btn-material-red-900"><div><i class="material-icons">account_circle</i></div>Go to Binge Pipeline</a>
+			
+		
+		<div id="search__area">
+			<div id="search-result__primary" ng-if="searchCtrl.tvData.Response === 'True'">
+				<img id="poster-image" />
+				<span><a href="http://imdb.com/title/{{ searchCtrl.tvData.imdbID }}" target="_blank">{{ searchCtrl.tvData.Title }}</a> {{ searchCtrl.tvData.Year }}</span> 
+				<p>{{ searchCtrl.tvData.Plot }}</p>
+				<button class="btn btn-primary" type="submit" ng-click="searchCtrl.addTvShow()">BINGE</button>
+				<button class="btn btn-warning" ng-click="searchCtrl.clear()">CLEAR</button>
+			</div>
+		</div>
+	</div>
+
 </div>

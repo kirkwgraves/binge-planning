@@ -1,12 +1,19 @@
+@font-face {
+  font-family: San Francisco;
+  src: url("../SF-UI/SF-UI-Text-Regular.otf"); }
+* {
+  font-family: San Francisco, sans-serif; }
+
 body {
   padding-top: 70px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/2000px-SMPTE_Color_Bars.svg.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
 
 body h1 {
-  font-size: 6em;
+  font-size: 3em;
   font-weight: 600;
   color: black; }
 
@@ -22,7 +29,6 @@ i {
   font-weight: 500; }
 
 .jumbotron {
-  background: url("http://www.gizmodo.in/photo/46708773.cms");
   text-align: center; }
 
 .well {
