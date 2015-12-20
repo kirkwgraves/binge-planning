@@ -2,12 +2,12 @@
 	 <h2><strong>THIS IS A TEST</strong></h2>
 </div>
 <div class="modal-body">
-	<p>{{ calendarCtrl.calendarEvent.title }}</p>
+	<p>{{ modalInstanceCtrl.calEvent.title }}</p>
 	 <!-- <div>{{ calendarCtrl.selectedEvent.plot }}</div> -->	
 	<br>
 	<!-- <div><span><strong>CAST: </strong>{{ calendarCtrl.selectedEvent.cast }}</span></div> -->
 </div>
 <div class="modal-footer">
-	<p>Test</p>
+	<button ng-click="modalInstanceCtrl.ok()" class="btn btn-material-green-500">OK</button>
 </div>
 

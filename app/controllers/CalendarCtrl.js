@@ -1,4 +1,4 @@
-app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',  
+app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 	function(Auth, $firebaseArray, $uibModal) {
 
 	var self = this;
@@ -45,28 +45,26 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 	});
 
 	function showModal(action, calendarEvent) {
-      $uibModal.open({
-        templateUrl: 'partials/event-detail.html',
-        controllerAs: CalendarCtrl
-        }),
-        scope: $scope,
-        resolve: {
-        	calendarEvent: function () {
-          	return $scope.calendarEvent;
-        	}
-        },
-      });
-  }
+	  var modalInstance = $uibModal.open({
+	    templateUrl: 'partials/event-detail.html',
+	    controller: 'ModalInstanceCtrl as modalInstanceCtrl',
+	    resolve: {
+	    	calEvent: function () {
+	      	return calendarEvent;
+	    	}
+	    },
+  	})
+	}
+
 
 	self.eventClicked = function(calendarEvent) {
 		showModal('Click', calendarEvent);
 		console.log('calendarEvent.title', calendarEvent.title);
 	};
 
-	
-	
-
-	
+	// self.ok = function() {
+	// 	$uibModalInstance.dismiss('cancel');
+	// };
 	
 
 }]);
