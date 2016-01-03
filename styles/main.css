@@ -1,8 +1,8 @@
 @font-face {
-  font-family: San Francisco;
+  font-family: 'San Francisco';
   src: url("../SF-UI/SF-UI-Text-Regular.otf"); }
 * {
-  font-family: San Francisco, sans-serif; }
+  font-family: 'San Francisco'; }
 
 body {
   padding-top: 70px;
@@ -13,6 +13,7 @@ body {
   background-size: cover; }
 
 body h1 {
+  font-family: 'San Francisco';
   font-size: 3em;
   font-weight: 600;
   color: black; }
@@ -25,16 +26,27 @@ i {
   padding-left: 6px;
   padding-right: 6px; }
 
+.navbar-brand {
+  font-family: 'San Francisco'; }
+
 .btn-raised {
   font-weight: 500; }
 
 .jumbotron {
+  font-family: 'San Francisco';
   text-align: center; }
 
+.jumbotron h3 {
+  font-family: 'San Francisco'; }
+
 .well {
+  font-family: 'San Francisco';
   text-align: center;
   font-size: 1.5em;
   font-color: black; }
+
+.login-modal h2 {
+  font-family: 'San Francisco'; }
 
 #search__area {
   background-color: white;
@@ -49,7 +61,8 @@ i {
   color: black;
   margin-top: 50px; }
 
-#pipeline-heading {
+#pipeline-heading h2 {
+  font-family: 'San Francisco';
   font-weight: 500; }
 
 .pipeline-poster {

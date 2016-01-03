@@ -2,6 +2,7 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 
 	var self = this;
 	var authData = Auth.$getAuth();
+	console.log('authData', authData);
 	var user = authData.uid;
 	var pendingTask;
 
@@ -75,6 +76,16 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 		});
 
 	}
+
+	self.discover = function() {
+		$http.get('http://api.themoviedb.org/3/discover/tv?api_key=deef80d0314f8b8ce2ec67ab0e903cda&sort_by=popularity.desc')
+		.success(function(response) {
+			console.log('response', response);
+			self.discoverableShows = response.results;
+			console.log('self.discoverableShows', self.discoverableShows);
+			console.log('click');
+		});
+	};
 
 	self.update = function(tvShow) {
 		self.search = tvShow.Title;

@@ -11,6 +11,10 @@ app.controller('ProfileCtrl', ['Auth', '$routeParams', '$firebaseArray', 'userFa
 	self.showsArray = $firebaseArray(ref);
 
 	console.log('self.showsArray', self.showsArray);
+
+	self.removeShow = function() {
+		
+	}
 	
 
 }]); // End ProfileCtrl
