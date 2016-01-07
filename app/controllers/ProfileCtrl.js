@@ -10,11 +10,27 @@ app.controller('ProfileCtrl', ['Auth', '$routeParams', '$firebaseArray', 'userFa
 	ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
 	self.showsArray = $firebaseArray(ref);
 
+	self.tvShowId = $routeParams.tvShowId;
+
 	console.log('self.showsArray', self.showsArray);
 
 	self.removeShow = function() {
-		
-	}
+		self.showsArray.$loaded()
+		.then(function(tvData) {
+			self.showsArray = tvData;
+			console.log('self.showsArray', self.showsArray);
+			self.showToDelete = self.showsArray.$getRecord(self.tvShowId);
+			console.log('self.showToDelete', self.showToDelete);
+			self.selectedShow = {};
+	}) 
+	.catch(function(error) {
+		console.log('Failure due to: ', error);
+	}); // End callback func
+
+	// self.selectedShow = {};
+	console.log('Hello from removeShow');
+
+	};
 	
 
 }]); // End ProfileCtrl

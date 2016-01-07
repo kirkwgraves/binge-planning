@@ -1,4 +1,4 @@
-<nav class="navbar navbar-material-blue-900 navbar-fixed-top">
+<nav ng-controller="NavbarCtrl as navbarCtrl" class="navbar navbar-material-blue-900 navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
       
     <ul class="nav navbar-nav navbar-right">
-      <li><a ng-click="welcomeCtrl.logout()" role="button">LOGOUT</a></li>
+      <li ng-if="navbarCtrl.authData"><a ng-click="navbarCtrl.logout()" role="button">LOGOUT</a></li>
       <li>
         <div class="dropdown">
             <button class="btn btn-material-blue-900 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">MENU

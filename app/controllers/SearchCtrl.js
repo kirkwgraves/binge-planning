@@ -84,6 +84,35 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 			self.discoverableShows = response.results;
 			console.log('self.discoverableShows', self.discoverableShows);
 			console.log('click');
+
+		var xmlHTTP = new XMLHttpRequest();
+		    xmlHTTP.open('GET', 'http://api.themoviedb.org/3/discover/tv?api_key=deef80d0314f8b8ce2ec67ab0e903cda&sort_by=popularity.desc', true);
+
+		    // Must include this line - specifies the response type we want
+		    xmlHTTP.responseType = 'arraybuffer';
+
+		    xmlHTTP.onload = function (e) {
+
+	      	var arr = new Uint8Array(this.response);
+
+	        // Convert the int array to a binary string
+	        // We have to use apply() as we are converting an *array*
+	        // and String.fromCharCode() takes one or more single values, not
+	        // an array.
+
+	        var raw = String.fromCharCode.apply(null,arr);
+
+	        // This works!!!
+	        var b64 = btoa(raw);
+	        var dataURL = 'data:image/jpeg;base64,' + b64;
+	        console.log('dataURL', dataURL);
+	        document.getElementById('discPoster-image').src = dataURL;
+	        self.discoverableShows.poster_path = dataURL;
+	        console.log('self.discoverableShows.poster_path', self.discoverableShows.poster_path);
+		    };
+
+		    xmlHTTP.send();
+
 		});
 	};
 
