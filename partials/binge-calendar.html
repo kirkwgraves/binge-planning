@@ -1,7 +1,7 @@
-<div ng-controller="WelcomeCtrl as welcomeCtrl" ng-include="'partials/navbar.html'"></div>
+<div ng-controller="NavbarCtrl as navbarCtrl" ng-include="'partials/navbar.html'"></div>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2 cal">
 
   
   <button
@@ -31,6 +31,7 @@
 	<h2>{{ calendarCtrl.calendarTitle }}</h2>
 
 	<mwl-calendar
+		id="calendar"
     view="calendarCtrl.calendarView"
     current-day="calendarCtrl.calendarDay"
     events="calendarCtrl.events"

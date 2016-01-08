@@ -1,12 +1,8 @@
 <div ng-controller="WelcomeCtrl as welcomeCtrl" ng-include="'partials/navbar.html'"></div>
 
 <div class="row">
-	<div class="col-md-12">
-		<div class="col-md-offset-10">
-			<a href="#/profile" class="btn btn-raised btn-large btn-material-red-900"><div><i class="material-icons">account_circle</i></div>Go to Binge Pipeline</a>
-		</div>
-	</div>
-	<div class="col-md-8">
+
+	<div class="col-md-8 col-md-offset-2">
 		<h3 class="well well-lg">SEARCH BY TITLE</h3>
 		
 		<input id="title__field" type="text" class="form-control" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" placeholder="Enter exact show title"/>
@@ -21,18 +17,22 @@
 				<button class="btn btn-warning" ng-click="searchCtrl.clear()">CLEAR</button>
 			</div>
 		</div>
+
+		<div>
+			<a href="#/profile" class="btn btn-raised btn-large btn-material-yellow-900"><div><i class="material-icons">account_circle</i></div>Go to Binge Pipeline</a>
+		</div>
+
+		
+	
 	</div>
 </div>
 
-<div ng-if="searchCtrl.newTvShow" class="col-md-offset-3 col-md-4">
-	<div class="alert alert-dismissible alert-success">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
-	  <strong>You successfully added this show to your Binge Pipeline!</strong>
-	</div>
-</div>
 
-<div class="row">
-	<div class="col-md-8">
+
+
+
+<!-- <div class="row">
+	<div class="col-md-8 col-md-offset-2">
 		<h3 class="well well-lg">DISCOVER POPULAR SHOWS</h3>
 		<button class="btn btn-lg btn-material-blue-900" type="submit" ng-click="searchCtrl.discover()">GO!</button>
 	</div>
@@ -46,4 +46,4 @@
 			<button class="btn btn-warning" ng-click="searchCtrl.clear()">CLEAR</button>
 		</div>
 	</div>
-</div>
+</div> -->
