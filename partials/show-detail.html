@@ -4,12 +4,16 @@
 	<div class="col-md-8 col-md-offset-2">
 		
 		<div id="detail__area">
-    	<img ng-src="{{ showDetailCtrl.selectedShow.poster }}"/>
-	    <h2><strong>{{ showDetailCtrl.selectedShow.title }}</strong></h2>
-	    <div>{{ showDetailCtrl.selectedShow.plot }}</div>
-	    <br>
-	    <div><span><strong>CAST: </strong>{{ showDetailCtrl.selectedShow.cast }}</span></div>
-	    <div><span><strong>AIRED: </strong>{{ showDetailCtrl.selectedShow.year }}</span></div>
+    	<img ng-src="{{ showDetailCtrl.selectedShow.poster }}"/><img id="binge-watch" src="http://kaldor.com/wordpress2014/wp-content/uploads/2014/10/bingewatch_banner-1600x720-1600x720.jpg">
+
+			<div id="detail__area-info">
+	    	<h2><strong>{{ showDetailCtrl.selectedShow.title }}</strong></h2>
+		    
+		    <div>{{ showDetailCtrl.selectedShow.plot }}</div>
+		    <br>
+		    <div><span><strong>CAST: </strong>{{ showDetailCtrl.selectedShow.cast }}</span></div>
+		    <div><span><strong>AIRED: </strong>{{ showDetailCtrl.selectedShow.year }}</span></div>
+	  	</div>
 	  </div>
 
 	

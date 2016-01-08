@@ -1,16 +1,16 @@
 <div ng-controller="WelcomeCtrl as welcomeCtrl" ng-include="'partials/navbar.html'"></div>
 
 <div class="row">
-	<div class="col-md-7 col-md-offset-3">
+	<div class="col-md-6 col-md-offset-3">
 		<div id="pipeline-heading">
-			<h2>BINGE PIPELINE</h2>
+			<h2>MY BINGE PIPELINE</h2>
 		</div>
 		
 		<table class="table">
 
       <tr ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
       	<td><a href="#/profile/{{ show.$id }}"><img class="pipeline-poster" ng-src="{{ show.poster }}"></a></td>
-      	<td><a href="#/profile/{{ show.$id }}" ng-click="profileCtrl.removeShow()" class="btn btn-large btn-danger" role="button">REMOVE</a></td>
+      	<td><a href="#/profile/{{ show.$id }}" ng-click="profileCtrl.removeShow()" class="btn btn-large btn-danger remove" role="button">REMOVE</a></td>
       </tr>
 
     </table>

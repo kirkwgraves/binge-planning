@@ -20,7 +20,14 @@ body h1 {
 
 td {
   background-color: black;
-  opacity: .85; }
+  opacity: .95;
+  border: 1px solid white; }
+
+td a {
+  padding-left: 83px; }
+
+a.btn-danger {
+  margin-left: 29px; }
 
 i {
   padding-left: 6px;
@@ -51,9 +58,15 @@ i {
 .login-modal h2 {
   font-family: 'San Francisco'; }
 
+#search__inputDiv {
+  background-color: white; }
+
 #search__area {
   background-color: white;
   font-size: 1.5em; }
+
+#search-title {
+  font-size: 3em; }
 
 #discover-div {
   background-color: white;
@@ -68,19 +81,38 @@ i {
   color: black;
   margin-top: 50px; }
 
+#binge-watch {
+  height: 150px;
+  width: 400px;
+  margin-left: 95px;
+  display: inline; }
+
 #pipeline-heading h2 {
   font-family: 'San Francisco';
-  font-weight: 500; }
+  font-weight: 500;
+  text-align: center;
+  background-color: white;
+  border: 1px solid black; }
 
 .pipeline-poster {
   padding-left: 8px; }
 
 #detail__area {
   background-color: white;
-  font-size: 1.5em;
-  opacity: .95; }
+  font-size: 1.25em; }
+
+#detail__area img, h2 {
+  padding-left: 40px;
+  padding-top: 20px; }
+
+#detail__area-info div {
+  padding-left: 40px;
+  padding-bottom: 20px; }
 
 .date-field {
   background-color: white; }
+
+.modal-content {
+  padding: 10px; }
 
 /*# sourceMappingURL=main.css.map */
