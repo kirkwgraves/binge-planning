@@ -8,7 +8,7 @@
 		
 		<table class="table">
 
-      <tr ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
+      <tr ng-animate="'animate'" ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
       	<td><a href="#/profile/{{ show.$id }}"><img class="pipeline-poster" ng-src="{{ show.poster }}"></a></td>
       	<td><a href="#/profile/{{ show.$id }}" ng-click="profileCtrl.removeShow()" class="btn btn-large btn-danger remove" role="button">REMOVE</a></td>
       </tr>
