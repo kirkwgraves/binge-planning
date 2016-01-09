@@ -10,6 +10,10 @@ app.controller('ProfileCtrl', ['Auth', '$routeParams', '$firebaseArray', 'userFa
 	ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
 	self.showsArray = $firebaseArray(ref);
 
+	self.sortType = 'title';
+	self.sortReverse = false;
+	self.searchShows = '';
+
 	self.tvShowId = $routeParams.tvShowId;
 
 	console.log('self.showsArray', self.showsArray);

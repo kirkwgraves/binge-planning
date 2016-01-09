@@ -111,16 +111,28 @@ i {
 .pipeline-poster {
   padding-left: 8px; }
 
+#filter-form {
+  margin-top: 25px;
+  background-color: white; }
+
+#filter-form input {
+  font-size: 1.5em; }
+
+#query-alert p {
+  font-size: 1.5em; }
+
 #detail__area {
   background-color: white;
   font-size: 1.25em; }
 
 #detail__area img, h2 {
   padding-left: 40px;
+  padding-right: 30px;
   padding-top: 20px; }
 
 #detail__area-info div {
   padding-left: 40px;
+  padding-right: 40px;
   padding-bottom: 20px; }
 
 .date-field {

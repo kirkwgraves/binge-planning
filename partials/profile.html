@@ -5,10 +5,26 @@
 		<div id="pipeline-heading">
 			<h2>MY BINGE PIPELINE</h2>
 		</div>
+
+		<div id="query-alert" class="alert alert-material-blue-900">
+    	<p>Search: {{ profileCtrl.searchShows }}</p>
+
+			<form id="filter-form">
+	    	<div class="form-group">
+	      	<div class="input-group">
+	        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+	        <input type="text" class="form-control" ng-model="profileCtrl.searchShows" />
+
+	      	</div>      
+	    	</div>
+	  	</form>
+	
+		</div>
 		
 		<table class="table">
 
-      <tr ng-animate="'animate'" ng-repeat="show in profileCtrl.showsArray" ng-model="profileCtrl.showsArray">
+      <tr ng-animate="'animate'" ng-repeat="show in profileCtrl.showsArray | orderBy:profileCtrl.sortType:profileCtrl.sortReverse | filter:profileCtrl.searchShows" ng-model="profileCtrl.showsArray">
       	<td><a href="#/profile/{{ show.$id }}"><img class="pipeline-poster" ng-src="{{ show.poster }}"></a></td>
       	<td><a href="#/profile/{{ show.$id }}" ng-click="profileCtrl.removeShow()" class="btn btn-large btn-danger remove" role="button">REMOVE</a></td>
       </tr>
