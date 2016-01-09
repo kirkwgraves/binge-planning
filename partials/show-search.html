@@ -2,24 +2,23 @@
 
 <div class="row">
 
-	<div class="col-md-8 col-md-offset-2">
-		<h3 class="well well-lg">SEARCH BY TITLE</h3>
+	<div class="col-md-8 col-md-offset-2 search__inputDiv">
+		<h1 id="search-heading" class="well well-lg well-material-blue-900">FIND YOUR NEXT BINGE</h1>
 		
-		<div id="search__inputDiv">
-			<input id="title__field" type="text" class="form-control" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" placeholder="Enter exact show title"/>
+		<div id="search-container">
+			<input id="title__field" type="text" class="form-control" ng-model="searchCtrl.search" ng-change="searchCtrl.change()" />
 		</div>
 		
 		<div id="search__area">
 			<div id="search-result__primary" ng-if="searchCtrl.tvData.Response === 'True'">
 				<img id="poster-image" />
 				<span><a id="search-title" href="http://imdb.com/title/{{ searchCtrl.tvData.imdbID }}" target="_blank">{{ searchCtrl.tvData.Title }}</a> {{ searchCtrl.tvData.Year }}</span> 
-				<p>{{ searchCtrl.tvData.Plot }}</p>
+				<p id="search-plot">{{ searchCtrl.tvData.Plot }}</p>
 				<button class="btn btn-material-blue-900" type="submit" ng-click="searchCtrl.addTvShow()">BINGE</button>
 				<button class="btn btn-warning" ng-click="searchCtrl.clear()">CLEAR</button>
 			</div>
 		</div>
-
-		<div>
+		<div id="pipeline-button">
 			<a href="#/profile" class="btn btn-raised btn-large btn-material-yellow-900"><div><i class="material-icons">account_circle</i></div>Go to Binge Pipeline</a>
 		</div>
 
@@ -29,22 +28,3 @@
 </div>
 
 
-
-
-
-<!-- <div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<h3 class="well well-lg">DISCOVER POPULAR SHOWS</h3>
-		<button class="btn btn-lg btn-material-blue-900" type="submit" ng-click="searchCtrl.discover()">GO!</button>
-	</div>
-
-	<div ng-if="searchCtrl.discoverableShows">
-		<div id="discover-div" class="col-md-4" ng-repeat="show in searchCtrl.discoverableShows" ng-model="searchCtrl.discoverableShows">
-			<img class="discPoster-image" />
-			<span>{{ show.name }}, {{ show.first_air_date }}</span> 
-			<p>Popularity Rank: {{ show.popularity }}</p>
-			<button class="btn btn-primary" type="submit" ng-click="searchCtrl.addTvShow()">BINGE</button>
-			<button class="btn btn-warning" ng-click="searchCtrl.clear()">CLEAR</button>
-		</div>
-	</div>
-</div> -->

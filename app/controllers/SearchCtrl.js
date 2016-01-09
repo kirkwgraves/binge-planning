@@ -1,4 +1,4 @@
-app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', function(Auth, $http, $firebaseArray, userFactory) {
+app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', '$uibModal', function(Auth, $http, $firebaseArray, userFactory, $uibModal) {
 
 	var self = this;
 	var authData = Auth.$getAuth();
@@ -32,6 +32,8 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 			console.log('Added show with id: ' + id);
 			newTvShow.id = id;
 			console.log('newTvShow', newTvShow);
+			self.clear();
+			self.showModal();
 		});
 
 		
@@ -78,48 +80,6 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 
 	};
 
-	// self.discover = function() {
-	// 	$http.get('http://api.themoviedb.org/3/discover/tv?api_key=deef80d0314f8b8ce2ec67ab0e903cda&sort_by=popularity.desc')
-	// 	.success(function(response) {
-	// 		console.log('response', response);
-	// 		self.discoverableShows = response.results;
-	// 		console.log('self.discoverableShows', self.discoverableShows);
-
-	// 		self.posterPaths = [];
-	// 		for (var i = 0; i < self.discoverableShows.length; i++) {
-	// 			self.posterPaths.push(self.discoverableShows[i].poster_path);
-	// 		}
-	// 		console.log('self.posterPaths', self.posterPaths);
-
-	// 	var xmlHTTP = new XMLHttpRequest();
-	// 	    xmlHTTP.open('GET', 'https://image.tmdb.org/t/p/w500/' + self.posterPaths[0], true);
-
-	// 	    // Must include this line - specifies the response type we want
-	// 	    xmlHTTP.responseType = 'arraybuffer';
-
-	// 	    xmlHTTP.onload = function (e) {
-
-	//       	var arr = new Uint8Array(this.response);
-
-	//         // Convert the int array to a binary string
-	//         // We have to use apply() as we are converting an *array*
-	//         // and String.fromCharCode() takes one or more single values, not
-	//         // an array.
-
-	//         var raw = String.fromCharCode.apply(null,arr);
-
-	//         // This works!!!
-	//         var b64 = btoa(raw);
-	//         var dataURL = 'data:image/jpeg;base64,' + b64;
-	//         console.log('dataURL', dataURL);
-	//         document.getElementById('discPoster-image').src = dataURL;
-	// 	    };
-
-	// 	    xmlHTTP.send();
-
-	// 	});
-	// };
-
 	self.update = function(tvShow) {
 		self.search = tvShow.Title;
 		self.change();
@@ -140,5 +100,12 @@ app.controller('SearchCtrl', ['Auth', '$http', '$firebaseArray', 'userFactory', 
 	self.select = function(){
   	this.setSelectionRange(0, this.value.length);
 	};
+
+	self.showModal = function() {
+	  var modalInstance = $uibModal.open({
+	    templateUrl: 'partials/success-modal.html',
+	    controller: 'SuccessModalCtrl as successModalCtrl',
+  	});
+	}
 
 }]); // End SearchCtrl
