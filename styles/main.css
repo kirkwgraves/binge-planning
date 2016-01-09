@@ -77,7 +77,7 @@ i {
 
 #discover-div {
   background-color: white;
-  font-size: 1.5em; }
+  font-size: 1.6em; }
 
 #title__field {
   color: black;
@@ -116,7 +116,9 @@ i {
   background-color: white; }
 
 #filter-form input {
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  background-color: white;
+  width: 75%; }
 
 #query-alert p {
   font-size: 1.5em; }
@@ -147,35 +149,5 @@ i {
 
 .modal-content {
   font-size: 1.25em; }
-
-.animate-enter,
-.animate-leave {
-  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  position: relative;
-  display: block; }
-
-.animate-leave.animate-leave-active,
-.animate-enter {
-  -webkit-transform: rotateX(90deg) rotateZ(90deg);
-  -moz-transform: rotateX(90deg) rotateZ(90deg);
-  -ms-transform: rotateX(90deg) rotateZ(90deg);
-  -o-transform: rotateX(90deg) rotateZ(90deg);
-  transform: rotateX(90deg) rotateZ(90deg);
-  opacity: 0;
-  height: 0px; }
-
-.animate-enter.animate-enter-active,
-.animate-leave {
-  -webkit-transform: rotateX(0deg) rotateZ(0deg);
-  -moz-transform: rotateX(0deg) rotateZ(0deg);
-  -ms-transform: rotateX(0deg) rotateZ(0deg);
-  -o-transform: rotateX(0deg) rotateZ(0deg);
-  transform: rotateX(0deg) rotateZ(0deg);
-  opacity: 1;
-  height: 30px; }
 
 /*# sourceMappingURL=main.css.map */
