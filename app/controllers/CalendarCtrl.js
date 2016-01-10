@@ -14,7 +14,7 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 	self.calendarDay = new Date();
 	 
 
-	ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
+	var ref = new Firebase('https://binge-planning.firebaseio.com/users/' + user + '/shows/');
 	// Use snapshots to manipulate shows in user's array
 	ref.on('value', function (snapshot) {
 		self.shows = snapshot.val();
@@ -33,6 +33,7 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 					plot: show.plot,
 					cast: show.cast,
 					type: 'info',
+					imdbID: show.imdbID,
 					startsAt: moment(show.startDate),
 					endsAt: moment(show.endDate),
 					editable: true,
@@ -68,6 +69,12 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 		console.log('calendarEvent', calendarEvent);
 		calendarEvent.startsAt = null;
 		calendarEvent.endsAt = null;
+		self.showsArray.forEach(function(show) {
+			if (calendarEvent.imdbID === show.imdbID) {
+				show.startDate = '';
+				show.endDate = '';
+			}
+		});				
 	};
 
 
