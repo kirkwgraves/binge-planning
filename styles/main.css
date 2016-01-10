@@ -101,12 +101,18 @@ i {
   margin-left: 95px;
   display: inline; }
 
+.remove {
+  margin-left: 35px; }
+
 #pipeline-heading h2 {
   font-family: 'San Francisco';
   font-weight: 600;
   text-align: center;
   padding-bottom: 18px;
   background-color: white; }
+
+#pipeline-button {
+  margin-left: 25px; }
 
 .pipeline-poster {
   padding-left: 8px; }

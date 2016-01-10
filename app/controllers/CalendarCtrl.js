@@ -64,9 +64,11 @@ app.controller('CalendarCtrl', ['Auth', '$firebaseArray', '$uibModal',
 		console.log('calendarEvent.title', calendarEvent.title);
 	};
 
-	// self.ok = function() {
-	// 	$uibModalInstance.dismiss('cancel');
-	// };
-	
+	self.eventDeleted = function(calendarEvent) {
+		console.log('calendarEvent', calendarEvent);
+		calendarEvent.startsAt = null;
+		calendarEvent.endsAt = null;
+	};
+
 
 }]);
