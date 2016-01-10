@@ -18,14 +18,18 @@ app.controller('ProfileCtrl', ['Auth', '$routeParams', '$firebaseArray', 'userFa
 
 	console.log('self.showsArray', self.showsArray);
 
-	self.removeShow = function() {
+	self.removeShow = function(show) {
 		self.showsArray.$loaded()
 		.then(function(tvData) {
 			self.showsArray = tvData;
 			console.log('self.showsArray', self.showsArray);
-			self.showToDelete = self.showsArray.$getRecord(self.tvShowId);
+			self.showToDelete = self.showsArray.$getRecord(show.$id);
 			console.log('self.showToDelete', self.showToDelete);
-			self.selectedShow = {};
+			self.showsArray.$remove(self.showToDelete)
+			.then(function(ref) {
+				ref.key() === self.showToDelete.$id
+				console.log('ref', ref);
+			})
 	}) 
 	.catch(function(error) {
 		console.log('Failure due to: ', error);
